@@ -370,7 +370,7 @@ with main_col:
     fichier_image = st.file_uploader("", type=["jpg", "jpeg", "png"])
     
     # Chemin du modèle
-    chemin_modele = r"C:\Users\vyuof\OneDrive\Bureau\projet chat\cat_model_final.h5"
+    chemin_modele = "cat_model_final.h5"
     
     # Si une image est téléversée
     if fichier_image is not None:
