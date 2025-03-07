@@ -16,176 +16,189 @@ st.set_page_config(
 )
 
 # CSS amélioré - suppression des blocs inutiles
+# st.markdown("""
+# <style>
+#     /* Variables de couleurs */
+#     :root {
+#         --bg-dark: #121212;
+#         --bg-card: #1e1e1e;
+#         --accent-primary: #ff9f1c;
+#         --text-light: #f8f9fa;
+#         --text-secondary: #cccccc;
+#         --positive: #4caf50;
+#         --negative: #f44336;
+#         --card-border: #2c2c2c;
+#     }
+    
+#     /* Style global */
+#     .stApp {
+#         background-color: var(--bg-dark);
+#     }
+    
+#     .main .block-container {
+#         padding: 1.5rem;
+#     }
+    
+#     /* Suppression des blocs vides */
+# /*
+#     [data-testid="stFileUploadDropzone"] > div:empty {
+#         display: none !important;
+#     }
+    
+#     [data-testid="stVerticalBlock"] > div:empty {
+#         display: none !important;
+#     }
+    
+#     /* Suppression des marges inutiles */
+#     .block-container {
+#         padding-top: 1rem !important;
+#         padding-bottom: 1rem !important;
+#     }
+    
+#     /* Masquer les conteneurs vides */
+#     div:empty {
+#         display: none !important;
+#     }
+# /* 
+
+#     /* Style amélioré pour l'uploader de fichiers */
+#     [data-testid="stFileUploader"] {
+#         background-color: var(--bg-card);
+#         border-radius: 8px;
+#         padding: 1rem;
+#         border: 2px dashed var(--accent-primary);
+#     }
+    
+#     /* Reset des styles par défaut de Streamlit */
+#     h1, h2, h3, h4, h5, h6, p, div {
+#         color: var(--text-light);
+#     }
+    
+#     /* Cartes avec style unifié */
+#     .card {
+#         background-color: var(--bg-card);
+#         border-radius: 12px;
+#         padding: 1.5rem;
+#         margin-bottom: 1.5rem;
+#         border-left: 3px solid var(--accent-primary);
+#         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+#     }
+    
+#     /* Titres avec style accentué */
+#     .card-title {
+#         color: var(--accent-primary);
+#         font-size: 1.4rem;
+#         margin-top: 0;
+#         margin-bottom: 1rem;
+#         font-weight: 600;
+#     }
+    
+#     /* Style pour le titre principal */
+#     .main-title {
+#         display: flex;
+#         align-items: center;
+#         justify-content: center;
+#         margin-bottom: 1.5rem;
+#         font-size: 2.5rem;
+#         color: var(--text-light);
+#         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+#     }
+    
+#     .main-title-icon {
+#         color: var(--accent-primary);
+#         margin-right: 0.5rem;
+#     }
+    
+#     .subtitle {
+#         text-align: center;
+#         color: var(--text-secondary);
+#         font-size: 1.2rem;
+#         margin-bottom: 1.5rem;
+#     }
+    
+#     /* Styles des résultats */
+#     .result-card {
+#         text-align: center;
+#         padding: 1.5rem;
+#         border-radius: 10px;
+#         margin: 1rem 0;
+#     }
+    
+#     .positive-result {
+#         background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(76, 175, 80, 0.05));
+#         border: 1px solid var(--positive);
+#     }
+    
+#     .negative-result {
+#         background: linear-gradient(135deg, rgba(244, 67, 54, 0.2), rgba(244, 67, 54, 0.05));
+#         border: 1px solid var(--negative);
+#     }
+    
+#     .result-title {
+#         font-size: 1.8rem;
+#         font-weight: bold;
+#         margin-bottom: 1rem;
+#     }
+    
+#     .result-value {
+#         font-size: 2.8rem;
+#         font-weight: bold;
+#     }
+    
+#     .positive-text {
+#         color: var(--positive);
+#     }
+    
+#     .negative-text {
+#         color: var(--negative);
+#     }
+    
+#     /* Personnalisation du style des boutons */
+#     .stButton button, .css-1x8cf1d {
+#         background-color: var(--accent-primary) !important;
+#         color: var(--text-light) !important;
+#         border: none !important;
+#         padding: 0.6rem 1.2rem !important;
+#         border-radius: 50px !important;
+#         font-weight: 600 !important;
+#         transition: all 0.3s ease !important;
+#     }
+    
+#     .stButton button:hover, .css-1x8cf1d:hover {
+#         background-color: #e58e00 !important;
+#         box-shadow: 0 4px 12px rgba(255, 159, 28, 0.4) !important;
+#         transform: translateY(-2px) !important;
+#     }
+    
+#     /* Style pour les upload/fileuploader */
+#     .st-bd, .st-at, .st-ae {
+#         background-color: var(--bg-card) !important;
+#         border: 1px dashed var(--accent-primary) !important;
+#         border-radius: 8px !important;
+#     }
+    
+#     /* Style pour éliminer les espaces indésirables */
+#     .element-container {
+#         margin-bottom: 0.5rem !important;
+#     }
+    
+#     /* Suppression des marges inutiles autour des images */
+#     [data-testid="stImage"] {
+#         margin-top: 0 !important;
+#         margin-bottom: 0 !important;
+#     }
+# </style>
+# """, unsafe_allow_html=True)
+# Au lieu d'injecter tout le CSS, essayez temporairement cette version minimale
 st.markdown("""
 <style>
-    /* Variables de couleurs */
-    :root {
-        --bg-dark: #121212;
-        --bg-card: #1e1e1e;
-        --accent-primary: #ff9f1c;
-        --text-light: #f8f9fa;
-        --text-secondary: #cccccc;
-        --positive: #4caf50;
-        --negative: #f44336;
-        --card-border: #2c2c2c;
-    }
-    
-    /* Style global */
+    /* Styles de base uniquement */
     .stApp {
-        background-color: var(--bg-dark);
+        background-color: #121212;
     }
     
-    .main .block-container {
-        padding: 1.5rem;
-    }
-    
-    /* Suppression des blocs vides */
-/*
-    [data-testid="stFileUploadDropzone"] > div:empty {
-        display: none !important;
-    }
-    
-    [data-testid="stVerticalBlock"] > div:empty {
-        display: none !important;
-    }
-    
-    /* Suppression des marges inutiles */
-    .block-container {
-        padding-top: 1rem !important;
-        padding-bottom: 1rem !important;
-    }
-    
-    /* Masquer les conteneurs vides */
-    div:empty {
-        display: none !important;
-    }
-/* 
-
-    /* Style amélioré pour l'uploader de fichiers */
-    [data-testid="stFileUploader"] {
-        background-color: var(--bg-card);
-        border-radius: 8px;
-        padding: 1rem;
-        border: 2px dashed var(--accent-primary);
-    }
-    
-    /* Reset des styles par défaut de Streamlit */
     h1, h2, h3, h4, h5, h6, p, div {
-        color: var(--text-light);
-    }
-    
-    /* Cartes avec style unifié */
-    .card {
-        background-color: var(--bg-card);
-        border-radius: 12px;
-        padding: 1.5rem;
-        margin-bottom: 1.5rem;
-        border-left: 3px solid var(--accent-primary);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    
-    /* Titres avec style accentué */
-    .card-title {
-        color: var(--accent-primary);
-        font-size: 1.4rem;
-        margin-top: 0;
-        margin-bottom: 1rem;
-        font-weight: 600;
-    }
-    
-    /* Style pour le titre principal */
-    .main-title {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 1.5rem;
-        font-size: 2.5rem;
-        color: var(--text-light);
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    }
-    
-    .main-title-icon {
-        color: var(--accent-primary);
-        margin-right: 0.5rem;
-    }
-    
-    .subtitle {
-        text-align: center;
-        color: var(--text-secondary);
-        font-size: 1.2rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    /* Styles des résultats */
-    .result-card {
-        text-align: center;
-        padding: 1.5rem;
-        border-radius: 10px;
-        margin: 1rem 0;
-    }
-    
-    .positive-result {
-        background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(76, 175, 80, 0.05));
-        border: 1px solid var(--positive);
-    }
-    
-    .negative-result {
-        background: linear-gradient(135deg, rgba(244, 67, 54, 0.2), rgba(244, 67, 54, 0.05));
-        border: 1px solid var(--negative);
-    }
-    
-    .result-title {
-        font-size: 1.8rem;
-        font-weight: bold;
-        margin-bottom: 1rem;
-    }
-    
-    .result-value {
-        font-size: 2.8rem;
-        font-weight: bold;
-    }
-    
-    .positive-text {
-        color: var(--positive);
-    }
-    
-    .negative-text {
-        color: var(--negative);
-    }
-    
-    /* Personnalisation du style des boutons */
-    .stButton button, .css-1x8cf1d {
-        background-color: var(--accent-primary) !important;
-        color: var(--text-light) !important;
-        border: none !important;
-        padding: 0.6rem 1.2rem !important;
-        border-radius: 50px !important;
-        font-weight: 600 !important;
-        transition: all 0.3s ease !important;
-    }
-    
-    .stButton button:hover, .css-1x8cf1d:hover {
-        background-color: #e58e00 !important;
-        box-shadow: 0 4px 12px rgba(255, 159, 28, 0.4) !important;
-        transform: translateY(-2px) !important;
-    }
-    
-    /* Style pour les upload/fileuploader */
-    .st-bd, .st-at, .st-ae {
-        background-color: var(--bg-card) !important;
-        border: 1px dashed var(--accent-primary) !important;
-        border-radius: 8px !important;
-    }
-    
-    /* Style pour éliminer les espaces indésirables */
-    .element-container {
-        margin-bottom: 0.5rem !important;
-    }
-    
-    /* Suppression des marges inutiles autour des images */
-    [data-testid="stImage"] {
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
+        color: #f8f9fa;
     }
 </style>
 """, unsafe_allow_html=True)
