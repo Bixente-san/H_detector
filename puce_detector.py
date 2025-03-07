@@ -659,14 +659,14 @@ with sidebar_col:
     <div class="card">
         <h3 class="card-title">Technologie</h3>
         <ul>
-            <li>MobileNetV2 avec Transfer Learning</li>
+            <li>MobileNetV2 avec Transfer Learning (fine-tuning)</li>
             <li>Analyse en temps réel</li>
             <li>Certification officielle avec sceau</li>
         </ul>
     </div>
     
     <div class="card">
-        <h3 class="card-title">Comment utiliser</h3>
+        <h3 class="card-title">Comment l'utiliser ?</h3>
         <ol>
             <li>Téléversez une photo de chat</li>
             <li>Attendez l'analyse de l'IA</li>
