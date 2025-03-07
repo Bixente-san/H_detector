@@ -374,11 +374,11 @@ with main_col:
     
     # Si une image est téléversée
     if fichier_image is not None:
-
-        with st.spinner(""):
-            modele = charger_modele(chemin_modele)
-        else:
-            st.error(f"Modèle non trouvé: '{chemin_modele}'")
+        try:
+            with st.spinner(""):
+                modele = charger_modele(chemin_modele)
+        except Exception as e:
+            st.error(f"Erreur: {str(e)}")
             st.stop()
         
         # Ouvrir l'image
