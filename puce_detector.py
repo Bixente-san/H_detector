@@ -230,6 +230,37 @@ st.markdown("""
         padding: 1.5rem;
     }
     
+    /* Suppression ciblée des blocs vides - SAUF pour l'uploader */
+    div:empty:not([data-testid="stFileUploadDropzone"] div):not([class*="st-emotion"]) {
+        display: none !important;
+    }
+    
+    /* Réduction des marges plutôt que suppression */
+    .block-container {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+    }
+    
+    /* Réduction des espaces entre éléments */
+    .element-container {
+        margin-bottom: 0.2rem !important;
+    }
+    
+    /* Style amélioré pour l'uploader de fichiers - maintenir visible */
+    [data-testid="stFileUploader"] {
+        background-color: var(--bg-card);
+        border-radius: 8px;
+        padding: 1rem;
+        border: 2px dashed var(--accent-primary);
+        opacity: 1 !important;
+        display: block !important;
+    }
+    
+    /* Reset des styles par défaut de Streamlit */
+    h1, h2, h3, h4, h5, h6, p, div {
+        color: var(--text-light);
+    }
+    
     /* Cartes avec style unifié */
     .card {
         background-color: var(--bg-card);
@@ -260,14 +291,53 @@ st.markdown("""
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     }
     
-    /* Style amélioré pour l'uploader de fichiers */
-    [data-testid="stFileUploader"] {
-        background-color: var(--bg-card);
-        border-radius: 8px;
-        padding: 1rem;
-        border: 2px dashed var(--accent-primary);
-        opacity: 1 !important;
-        display: block !important;
+    .main-title-icon {
+        color: var(--accent-primary);
+        margin-right: 0.5rem;
+    }
+    
+    .subtitle {
+        text-align: center;
+        color: var(--text-secondary);
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Styles des résultats */
+    .result-card {
+        text-align: center;
+        padding: 1.5rem;
+        border-radius: 10px;
+        margin: 1rem 0;
+    }
+    
+    .positive-result {
+        background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(76, 175, 80, 0.05));
+        border: 1px solid var(--positive);
+    }
+    
+    .negative-result {
+        background: linear-gradient(135deg, rgba(244, 67, 54, 0.2), rgba(244, 67, 54, 0.05));
+        border: 1px solid var(--negative);
+    }
+    
+    .result-title {
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+    
+    .result-value {
+        font-size: 2.8rem;
+        font-weight: bold;
+    }
+    
+    .positive-text {
+        color: var(--positive);
+    }
+    
+    .negative-text {
+        color: var(--negative);
     }
     
     /* Personnalisation du style des boutons */
@@ -279,6 +349,33 @@ st.markdown("""
         border-radius: 50px !important;
         font-weight: 600 !important;
         transition: all 0.3s ease !important;
+    }
+    
+    .stButton button:hover, .css-1x8cf1d:hover {
+        background-color: #e58e00 !important;
+        box-shadow: 0 4px 12px rgba(255, 159, 28, 0.4) !important;
+        transform: translateY(-2px) !important;
+    }
+    
+    /* Style pour les upload/fileuploader */
+    .st-bd, .st-at, .st-ae {
+        background-color: var(--bg-card) !important;
+        border: 1px dashed var(--accent-primary) !important;
+        border-radius: 8px !important;
+    }
+    
+    /* Suppression des marges inutiles autour des images */
+    [data-testid="stImage"] {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* Masquage ciblé des conteneurs vides sans affecter l'uploader */
+    .stVerticalBlock:empty {
+        margin: 0 !important;
+        padding: 0 !important;
+        min-height: 0 !important;
+        height: 0 !important;
     }
 </style>
 """, unsafe_allow_html=True)
