@@ -40,6 +40,7 @@ st.markdown("""
     }
     
     /* Suppression des blocs vides */
+/*
     [data-testid="stFileUploadDropzone"] > div:empty {
         display: none !important;
     }
@@ -58,7 +59,8 @@ st.markdown("""
     div:empty {
         display: none !important;
     }
-    
+/* 
+
     /* Style amélioré pour l'uploader de fichiers */
     [data-testid="stFileUploader"] {
         background-color: var(--bg-card);
@@ -367,7 +369,7 @@ with main_col:
     """, unsafe_allow_html=True)
     
     # Zone de téléversement simplifiée
-    fichier_image = st.file_uploader("", type=["jpg", "jpeg", "png"])
+    fichier_image = st.file_uploader("Déposer une image ici", type=["jpg", "jpeg", "png"])
     
     # Chemin du modèle
     chemin_modele = "cat_model_final.h5"
