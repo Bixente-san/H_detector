@@ -207,8 +207,8 @@ st.set_page_config(
 
 
 
-st.markdown(
-"""
+st.markdown("""
+<style>
     /* Variables de couleurs */
     :root {
         --bg-dark: #121212;
@@ -229,7 +229,7 @@ st.markdown(
     .main .block-container {
         padding: 1.5rem;
     }
-  
+    
     /* Cartes avec style unifié */
     .card {
         background-color: var(--bg-card);
@@ -259,7 +259,7 @@ st.markdown(
         color: var(--text-light);
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     }
-
+    
     /* Style amélioré pour l'uploader de fichiers */
     [data-testid="stFileUploader"] {
         background-color: var(--bg-card);
@@ -280,6 +280,7 @@ st.markdown(
         font-weight: 600 !important;
         transition: all 0.3s ease !important;
     }
+</style>
 """, unsafe_allow_html=True)
 
 # Fonction pour charger le modèle
