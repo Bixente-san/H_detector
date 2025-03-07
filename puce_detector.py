@@ -376,7 +376,7 @@ with main_col:
     if fichier_image is not None:
 
         with st.spinner(""):
-                modele = charger_modele(chemin_modele)
+            modele = charger_modele(chemin_modele)
         else:
             st.error(f"Modèle non trouvé: '{chemin_modele}'")
             st.stop()
