@@ -15,7 +15,8 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# CSS amélioré - suppression des blocs inutiles
+#==================================================
+
 # st.markdown("""
 # <style>
 #     /* Variables de couleurs */
@@ -39,34 +40,30 @@ st.set_page_config(
 #         padding: 1.5rem;
 #     }
     
-#     /* Suppression des blocs vides */
-# /*
-#     [data-testid="stFileUploadDropzone"] > div:empty {
+#     /* Suppression ciblée des blocs vides - SAUF pour l'uploader */
+#     div:empty:not([data-testid="stFileUploadDropzone"] div):not([class*="st-emotion"]) {
 #         display: none !important;
 #     }
     
-#     [data-testid="stVerticalBlock"] > div:empty {
-#         display: none !important;
-#     }
-    
-#     /* Suppression des marges inutiles */
+#     /* Réduction des marges plutôt que suppression */
 #     .block-container {
-#         padding-top: 1rem !important;
-#         padding-bottom: 1rem !important;
+#         padding-top: 0.5rem !important;
+#         padding-bottom: 0.5rem !important;
 #     }
     
-#     /* Masquer les conteneurs vides */
-#     div:empty {
-#         display: none !important;
+#     /* Réduction des espaces entre éléments */
+#     .element-container {
+#         margin-bottom: 0.2rem !important;
 #     }
-# /* 
-
-#     /* Style amélioré pour l'uploader de fichiers */
+    
+#     /* Style amélioré pour l'uploader de fichiers - maintenir visible */
 #     [data-testid="stFileUploader"] {
 #         background-color: var(--bg-card);
 #         border-radius: 8px;
 #         padding: 1rem;
 #         border: 2px dashed var(--accent-primary);
+#         opacity: 1 !important;
+#         display: block !important;
 #     }
     
 #     /* Reset des styles par défaut de Streamlit */
@@ -177,30 +174,18 @@ st.set_page_config(
 #         border-radius: 8px !important;
 #     }
     
-#     /* Style pour éliminer les espaces indésirables */
-#     .element-container {
-#         margin-bottom: 0.5rem !important;
-#     }
-    
 #     /* Suppression des marges inutiles autour des images */
 #     [data-testid="stImage"] {
 #         margin-top: 0 !important;
 #         margin-bottom: 0 !important;
 #     }
-# </style>
-# """, unsafe_allow_html=True)
 
-# #TEST CSS MINIMALISTE
-# # Au lieu d'injecter tout le CSS, essayez temporairement cette version minimale
-# st.markdown("""
-# <style>
-#     /* Styles de base uniquement */
-#     .stApp {
-#         background-color: #121212;
-#     }
-    
-#     h1, h2, h3, h4, h5, h6, p, div {
-#         color: #f8f9fa;
+#     /* Masquage ciblé des conteneurs vides sans affecter l'uploader */
+#     .stVerticalBlock:empty {
+#         margin: 0 !important;
+#         padding: 0 !important;
+#         min-height: 0 !important;
+#         height: 0 !important;
 #     }
 # </style>
 # """, unsafe_allow_html=True)
@@ -377,8 +362,66 @@ st.markdown("""
         min-height: 0 !important;
         height: 0 !important;
     }
+    
+    /* STYLES SPÉCIFIQUES POUR MOBILE */
+    @media (max-width: 768px) {
+        /* Forcer les styles pour tous les éléments critiques sur mobile */
+        body, .stApp, div, p, h1, h2, h3, h4, h5, h6 {
+            background-color: var(--bg-dark);
+            color: var(--text-light) !important;
+        }
+        
+        /* Cibler spécifiquement les éléments problématiques sur mobile */
+        [data-testid="stFileUploader"],
+        .stButton button, 
+        .stDownloadButton button,
+        .streamlit-expanderHeader,
+        [data-testid="stHeader"],
+        [data-testid="baseButton-headerNoPadding"] {
+            background-color: var(--bg-card) !important;
+            color: var(--text-light) !important;
+        }
+        
+        /* Barre d'entête Streamlit */
+        header[data-testid="stHeader"],
+        header {
+            background-color: var(--bg-dark) !important;
+        }
+        
+        /* Boutons de la barre d'entête */
+        button[kind="header"],
+        .stToolbar button {
+            background-color: var(--bg-dark) !important;
+            color: var(--text-light) !important;
+        }
+        
+        /* Input et zones cliquables */
+        input, select, option, button, a, [role="button"] {
+            background-color: var(--bg-card) !important;
+            color: var(--text-light) !important;
+            border-color: var(--accent-primary) !important;
+        }
+        
+        /* Ajustements pour une meilleure ergonomie sur mobile */
+        .card {
+            padding: 1rem;
+        }
+        
+        .main-title {
+            font-size: 2rem;
+        }
+        
+        /* Pour assurer que les menus déroulants et éléments qui apparaissent sont aussi stylés */
+        div[role="listbox"],
+        div[role="dialog"],
+        div[role="menu"] {
+            background-color: var(--bg-card) !important;
+            color: var(--text-light) !important;
+        }
+    }
 </style>
 """, unsafe_allow_html=True)
+
 
 # Fonction pour charger le modèle
 @st.cache_resource
