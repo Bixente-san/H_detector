@@ -374,9 +374,8 @@ with main_col:
     
     # Si une image est téléversée
     if fichier_image is not None:
-        # Charger le modèle
-        if os.path.exists(chemin_modele):
-            with st.spinner(""):
+
+        with st.spinner(""):
                 modele = charger_modele(chemin_modele)
         else:
             st.error(f"Modèle non trouvé: '{chemin_modele}'")
