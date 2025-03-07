@@ -189,18 +189,97 @@ st.set_page_config(
 #     }
 # </style>
 # """, unsafe_allow_html=True)
-# Au lieu d'injecter tout le CSS, essayez temporairement cette version minimale
-st.markdown("""
-<style>
-    /* Styles de base uniquement */
-    .stApp {
-        background-color: #121212;
+
+# #TEST CSS MINIMALISTE
+# # Au lieu d'injecter tout le CSS, essayez temporairement cette version minimale
+# st.markdown("""
+# <style>
+#     /* Styles de base uniquement */
+#     .stApp {
+#         background-color: #121212;
+#     }
+    
+#     h1, h2, h3, h4, h5, h6, p, div {
+#         color: #f8f9fa;
+#     }
+# </style>
+# """, unsafe_allow_html=True)
+
+
+
+st.markdown(
+"""
+    /* Variables de couleurs */
+    :root {
+        --bg-dark: #121212;
+        --bg-card: #1e1e1e;
+        --accent-primary: #ff9f1c;
+        --text-light: #f8f9fa;
+        --text-secondary: #cccccc;
+        --positive: #4caf50;
+        --negative: #f44336;
+        --card-border: #2c2c2c;
     }
     
-    h1, h2, h3, h4, h5, h6, p, div {
-        color: #f8f9fa;
+    /* Style global */
+    .stApp {
+        background-color: var(--bg-dark);
     }
-</style>
+    
+    .main .block-container {
+        padding: 1.5rem;
+    }
+  
+    /* Cartes avec style unifié */
+    .card {
+        background-color: var(--bg-card);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        border-left: 3px solid var(--accent-primary);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Titres avec style accentué */
+    .card-title {
+        color: var(--accent-primary);
+        font-size: 1.4rem;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+    
+    /* Style pour le titre principal */
+    .main-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        font-size: 2.5rem;
+        color: var(--text-light);
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Style amélioré pour l'uploader de fichiers */
+    [data-testid="stFileUploader"] {
+        background-color: var(--bg-card);
+        border-radius: 8px;
+        padding: 1rem;
+        border: 2px dashed var(--accent-primary);
+        opacity: 1 !important;
+        display: block !important;
+    }
+    
+    /* Personnalisation du style des boutons */
+    .stButton button, .css-1x8cf1d {
+        background-color: var(--accent-primary) !important;
+        color: var(--text-light) !important;
+        border: none !important;
+        padding: 0.6rem 1.2rem !important;
+        border-radius: 50px !important;
+        font-weight: 600 !important;
+        transition: all 0.3s ease !important;
+    }
 """, unsafe_allow_html=True)
 
 # Fonction pour charger le modèle
